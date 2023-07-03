@@ -41,13 +41,12 @@ refs.btnSub.addEventListener('click', function (e) {
   for (let i = 0; i < amount; i++) {
     createPromise(i + 1, firstDelay + delayStep * i)
       .then(({ position, delay }) => {
-        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-        Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
+        // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+        Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       })
   }
-
 });
