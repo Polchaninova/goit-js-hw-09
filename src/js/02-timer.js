@@ -31,37 +31,42 @@ class Timer {
     console.log(selectedDates[0]);
 
     const currentTime = Date.now();
+    refs.btnStart.disabled = true;
+    // refs.input.disabled = true;
+    refs.btnStart.classList.remove('is-active')
+    refs.input.classList.remove('is-active')
     const enterTouchTime = selectedDates[0];
+
     // Если пользователь выбрал дату в прошлом
     if (enterTouchTime < currentTime) {
-      refs.btnStart.disabled = true;
       // return window.alert("Please choose a date in the future");
-      Notiflix.Notify.failure(`Please choose a date in the future`);
-
+      return Notiflix.Notify.failure(`Please choose a date in the future`);
     }
     // Если пользователь выбрал валидную дату(в будущем), кнопка «Start» становится активной.
     else if (enterTouchTime > currentTime) {
-
       refs.btnStart.disabled = false;
+
       refs.btnStart.classList.add('is-active')
       refs.input.classList.add('is-active')
-
-
-      // ms - разница между конечной и текущей датой в миллисекундах.
 
       this.intervalId = setInterval(() => {
         const currentTime = Date.now();
         const deltaTime = enterTouchTime - currentTime;
         this.time = this.convertMs(deltaTime);
+
         this.onTick(this.time)
+
         if (deltaTime < 0) {
           clearInterval(this.intervalId);
+          refs.btnStart.disabled = true;
+
           refs.valueDays.textContent = '00';
           refs.valueHours.textContent = '00';
           refs.valueMinutes.textContent = '00';
           refs.valueSeconds.textContent = '00';
         }
-      }, 1000)
+
+      }, 1000);
     }
   }
   convertMs(ms) {
@@ -101,4 +106,4 @@ function updateFunction() {
 }
 
 flatpickr("#datetime-picker", timerInstance);
-console.log(timerInstance);
+// console.log(timerInstance);

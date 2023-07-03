@@ -21,7 +21,6 @@ img {
   width: 1119px;
   margin: 0 auto;
   padding: 10px 15px;
-  background-color: #f3d8a3;
   text-align: center;
   color: #212121;
   border-radius: 4px;
@@ -42,12 +41,12 @@ img {
 }
 
 .timer-btn:focus {
-  border: 2px solid #faa907;
+  border: 1px solid rgb(29, 223, 29);
 }
 
 .timer-btn.is-active {
-  background-color: #f3ad21;
-  border: 2px solid #faa907;
+  background-color: rgb(29, 223, 29);
+  border: 1px solid rgb(29, 223, 29);
 }
 
 .input-timer {
@@ -62,11 +61,11 @@ img {
 }
 
 .input-timer:focus {
-  border: 2px solid #faa907;
+  border: 1px solid rgb(29, 223, 29);
 }
 
 .input-timer.is-active {
-  border: 4px solid #faa907;
+  border: 1px solid rgb(29, 223, 29);
   border-radius: 3px;
 }
 
@@ -83,9 +82,15 @@ img {
   margin-top: 30px;
   margin-left: 30px;
 
-  font-size: 20px;
-  font-weight: 600;
   color: #212121;
+}
+
+.value {
+  font-size: 30px;
+}
+
+.label {
+  font-size: 20px;
 }
 /* promise */
 
